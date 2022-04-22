@@ -8,6 +8,6 @@ router.get("/livros", apiController.listaLivros);
 
 router.post("/livros/criar", apiController.criarLivros)
 
-
+router.put("/livros/editar/:id", apiController.editarLivros)
 
 module.exports = router;

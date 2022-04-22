@@ -11,13 +11,15 @@ const apiController = {
         query.quantidade_paginas = parseInt(values[1])
         query.estoque = parseInt(values[4])
         Livro.create(query)
-        let all = await Livro.findAll()
-        console.log(query)
-        res.send(all)
         //?titulo=HarryPotter&quantidade_paginas=700&autor=JKRowling&ano_lancamento=2000&estoque=75
     },
     editarLivros: async (req,res) => {
-        
+        let id = req.params.id
+        let query = req.query
+        let values = Object.values(query)
+        query.quantidade_paginas = parseInt(values[1])
+        query.estoque = parseInt(values[4])
+        Livro.update(query,{where: {id: id}})
     }
 }
 
