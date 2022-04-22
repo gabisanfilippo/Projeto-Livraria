@@ -20,6 +20,13 @@ const apiController = {
         query.quantidade_paginas = parseInt(values[1])
         query.estoque = parseInt(values[4])
         Livro.update(query,{where: {id: id}})
+    },
+    exibeLivroCadastrado: async (req,res) => {
+        let query = req.query
+        let values = Object.values(query)
+        query.quantidade_paginas = parseInt(values[1])
+        query.estoque = parseInt(values[4])
+        res.send(query)
     }
 }
 
